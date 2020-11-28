@@ -5,13 +5,12 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ImageIcon from '@material-ui/icons/Image';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToFav } from '../../store/actions/contactActions';
+import { deleteFav } from '../../store/actions/contactActions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,26 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GoToEditBtn = styled(Link)`
-  display: flex;
-  font-size: 1.5rem;
-  text-transform: none;
-  border-radius: 5rem;
-  width: 15rem;
-  height: 4rem;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background-color: #22a1c6;
-  color: #fff;
-
-  &:hover {
-    background-color: #314b81;
-  }
-`;
-
-const AddToFavBtn = styled.div`
+const RemoveFav = styled.div`
   display: flex;
   margin-right: 3rem;
   font-size: 1.5rem;
@@ -52,34 +32,21 @@ const AddToFavBtn = styled.div`
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: #e84f8a;
+  background-color: #951418;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #314b81;
+    background-color: #000;
   }
 `;
 
-export default function Contact(props) {
+export default function FavContact(props) {
   const dispatch = useDispatch();
-  const [favorite, setFavorite] = useState(false);
-  const { favorites } = useSelector((state) => state);
   const classes = useStyles();
 
-  const addToFavorite = () => {
-    const { id, firstName, lastName, age, photo } = props.list;
-    console.log(id, firstName, lastName, age, photo);
-    dispatch(
-      addToFav({
-        id,
-        firstName,
-        lastName,
-        age,
-        photo,
-      })
-    );
-    setFavorite(true);
+  const deleteSelected = () => {
+    dispatch(deleteFav(props.list.id));
   };
 
   return (
@@ -108,16 +75,9 @@ export default function Contact(props) {
             </Typography>
           }
         />
-
-        {!favorite && (
-          <AddToFavBtn onClick={addToFavorite}>
-            <FavoriteIcon />
-          </AddToFavBtn>
-        )}
-
-        <GoToEditBtn to={`/edit-contact/${props.list.id}`}>
-          Edit Data
-        </GoToEditBtn>
+        <RemoveFav onClick={deleteSelected}>
+          <DeleteIcon style={{ fontSize: '3rem' }} />
+        </RemoveFav>
       </ListItem>
     </List>
   );

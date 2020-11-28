@@ -1,4 +1,9 @@
 export const SET_DATA = 'SET_DATA';
+export const SET_FAVORITES = 'SET_FAVORITES';
 export const ADD_DATA = 'ADD_DATA';
 export const DELETE_DATA = 'DELETE_DATA';
+export const DELETE_FAV = 'DELETE_FAV';
 export const UPDATE_DATA = 'UPDATE_DATA';
+export const GET_BY_ID = 'GET_BY_ID';
+export const START_LOADING = 'START_LOADING';
+export const FINISH_LOADING = 'FINISH_LOADING';

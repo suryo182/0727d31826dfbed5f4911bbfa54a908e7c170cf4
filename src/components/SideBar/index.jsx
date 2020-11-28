@@ -1,8 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import PersonIcon from '@material-ui/icons/Person';
 import StarIcon from '@material-ui/icons/Star';
+import { Link } from 'react-router-dom';
 
 const SideBarWrapper = styled.div`
   width: 25rem;
@@ -19,7 +21,7 @@ const SideBarMenu = styled.div`
   padding-top: 2rem;
 `;
 
-const ContactWrapper = styled.div`
+const ContactWrapper = styled(Link)`
   margin: 0 auto;
   color: #fff;
   font-size: 1.8rem;
@@ -28,13 +30,14 @@ const ContactWrapper = styled.div`
   justify-content: center;
   transition: 0.2s all ease;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: #4c0c64;
   }
 `;
 
-const MyFavoritesWrapper = styled.div`
+const MyFavoritesWrapper = styled(Link)`
   margin: 0 auto;
   color: #fff;
   font-size: 1.8rem;
@@ -43,6 +46,7 @@ const MyFavoritesWrapper = styled.div`
   justify-content: center;
   transition: 0.2s all ease;
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     background-color: #4c0c64;
@@ -63,6 +67,7 @@ const ListTitle = styled.h5`
 `;
 
 export default function SideBar() {
+  const { lists, favorites } = useSelector((state) => state);
   return (
     <SideBarWrapper>
       <SideBarMenu>
@@ -77,7 +82,7 @@ export default function SideBar() {
           Contactlist
         </ContactTitle>
         <ListTitle>Contacts</ListTitle>
-        <ContactWrapper>
+        <ContactWrapper to="/">
           <PersonIcon
             style={{
               fontSize: '1.8rem',
@@ -85,9 +90,9 @@ export default function SideBar() {
               marginRight: '0.5rem',
             }}
           />{' '}
-          All Contacts
+          All Contacts ({lists.length})
         </ContactWrapper>
-        <MyFavoritesWrapper>
+        <MyFavoritesWrapper to="/favorites">
           <StarIcon
             style={{
               fontSize: '1.8rem',
@@ -95,7 +100,7 @@ export default function SideBar() {
               marginRight: '0.5rem',
             }}
           />
-          My Favorites
+          My Favorites {favorites.length > 0 && `(${favorites.length})`}
         </MyFavoritesWrapper>
       </SideBarMenu>
     </SideBarWrapper>
