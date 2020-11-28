@@ -16,12 +16,12 @@ const HomeWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   width: 100%;
-  min-height: 100%;
+  height: 100vh;
 `;
 
 const InnerContent = styled.div`
-  padding: 2rem;
-  height: 100vh;
+  padding: 3rem;
+  height: 90vh;
   overflow: scroll;
 `;
 

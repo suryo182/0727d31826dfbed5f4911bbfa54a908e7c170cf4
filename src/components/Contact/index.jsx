@@ -5,12 +5,12 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import ImageIcon from '@material-ui/icons/Image';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import { useDispatch, useSelector } from 'react-redux';
 import { addToFav } from '../../store/actions/contactActions';
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +64,6 @@ const AddToFavBtn = styled.div`
 export default function Contact(props) {
   const dispatch = useDispatch();
   const [favorite, setFavorite] = useState(false);
-  const { favorites } = useSelector((state) => state);
   const classes = useStyles();
 
   const addToFavorite = () => {

@@ -1,6 +1,6 @@
 import Input from '@material-ui/core/Input';
 import AddIcon from '@material-ui/icons/Add';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const ContactListWrapper = styled.div`
-  height: 100vh;
+  height: 100%;
 `;
 
 const SearchBarWrapper = styled.div`
@@ -31,6 +31,10 @@ const AddContactBtn = styled(Link)`
   text-decoration: none;
   background-color: #731e91;
   color: #fff;
+
+  &:hover {
+    background-color: #490063;
+  }
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -47,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HomePage() {
   const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
+  const [filtered, setFiltered] = useState([]);
   const { lists, isLoading } = useSelector((state) => state);
   const classes = useStyles();
 
@@ -54,21 +60,36 @@ export default function HomePage() {
     dispatch(fetchData());
   }, [dispatch]);
 
+  useEffect(() => {
+    setFiltered(
+      lists.filter((contact) => {
+        return (
+          contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
+          contact.lastName.toLowerCase().includes(search.toLowerCase()) ||
+          contact.age == search
+        );
+      })
+    );
+  }, [search, lists]);
+
+  console.log(filtered, '<<<< filtered');
+
   return (
     <React.Fragment>
       <SearchBarWrapper>
         <Input
           style={{ fontSize: '2rem', fontFamily: 'Poppins' }}
           placeholder="Search by name"
+          onChange={(e) => setSearch(e.target.value)}
         />
         <AddContactBtn to="add-contact">
-          <AddIcon style={{ fontSize: '2.5rem' }} />
+          <AddIcon style={{ fontSize: '2rem' }} />
           Add Contact
         </AddContactBtn>
       </SearchBarWrapper>
       <ContactListWrapper>
         {!isLoading ? (
-          lists.map((list) => <Contact key={list.id} list={list} />)
+          filtered.map((list) => <Contact key={list.id} list={list} />)
         ) : (
           <div className={classes.root}>
             <CircularProgress size={100} />
@@ -78,12 +99,3 @@ export default function HomePage() {
     </React.Fragment>
   );
 }
-
-// {isLoading ? (
-// <div className={classes.root}>
-//   <CircularProgress size={100} />
-// </div>
-// ) : (
-//   lists && lists.map((list) => <Contact key={list.id} list={list} />
-//   )
-// )}

@@ -7,11 +7,10 @@ import StarIcon from '@material-ui/icons/Star';
 import { Link } from 'react-router-dom';
 
 const SideBarWrapper = styled.div`
-  width: 25rem;
+  width: 30rem;
   min-height: 100%;
   background-color: #17031d;
   display: flex;
-  /* justify-content: center; */
 `;
 
 const SideBarMenu = styled.div`
@@ -23,11 +22,12 @@ const SideBarMenu = styled.div`
 
 const ContactWrapper = styled(Link)`
   margin: 0 auto;
+  padding: 0 3rem;
   color: #fff;
   font-size: 1.8rem;
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   transition: 0.2s all ease;
   cursor: pointer;
   text-decoration: none;
@@ -39,11 +39,12 @@ const ContactWrapper = styled(Link)`
 
 const MyFavoritesWrapper = styled(Link)`
   margin: 0 auto;
+  padding: 0 3rem;
   color: #fff;
   font-size: 1.8rem;
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   transition: 0.2s all ease;
   cursor: pointer;
   text-decoration: none;
@@ -56,14 +57,21 @@ const MyFavoritesWrapper = styled(Link)`
 const ContactTitle = styled.h4`
   margin: 0 auto;
   color: #fff;
-  font-size: 2rem;
+  font-size: 2.8rem;
+  font-weight: 500;
   margin-bottom: 5rem;
   display: flex;
 `;
-const ListTitle = styled.h5`
+const SideBarListTitle = styled.div`
   margin: 0 auto;
+  margin-bottom: 2rem;
   color: #fff;
-  font-size: 1.4rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+`;
+
+const ListText = styled.div`
+  align-self: center;
 `;
 
 export default function SideBar() {
@@ -74,14 +82,14 @@ export default function SideBar() {
         <ContactTitle>
           <ImportContactsIcon
             style={{
-              fontSize: '2.4rem',
+              fontSize: '5rem',
               marginRight: '0.5rem',
               alignSelf: 'center',
             }}
           />
-          Contactlist
+          <ListText>Contactlist</ListText>
         </ContactTitle>
-        <ListTitle>Contacts</ListTitle>
+        <SideBarListTitle>Contacts</SideBarListTitle>
         <ContactWrapper to="/">
           <PersonIcon
             style={{
