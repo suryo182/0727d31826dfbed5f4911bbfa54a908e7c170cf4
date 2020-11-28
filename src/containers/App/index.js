@@ -35,10 +35,10 @@ export default function App() {
             <Header />
             <InnerContent>
               <Switch>
-                <Route exact path="/" component={HomePage} />
                 <Route path="/edit-contact/:id" component={EditContactPage} />
                 <Route path="/add-contact" component={AddContactPage} />
                 <Route path="/favorites" component={FavoritesPage} />
+                <Route path="/" component={HomePage} />
               </Switch>
             </InnerContent>
           </ContentWrapper>

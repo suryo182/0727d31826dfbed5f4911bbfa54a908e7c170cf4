@@ -66,13 +66,13 @@ export default function HomePage() {
         return (
           contact.firstName.toLowerCase().includes(search.toLowerCase()) ||
           contact.lastName.toLowerCase().includes(search.toLowerCase()) ||
-          contact.age == search
+          contact.age === Number(search)
         );
       })
     );
   }, [search, lists]);
 
-  console.log(filtered, '<<<< filtered');
+  // console.log(filtered, '<<<< filtered');
 
   return (
     <React.Fragment>
