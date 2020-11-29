@@ -16,11 +16,13 @@ const ContactListWrapper = styled.div`
 const SearchBarWrapper = styled.div`
   display: flex;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   justify-content: space-between;
 `;
 
 const AddContactBtn = styled(Link)`
   display: flex;
+  height: 5rem;
   font-size: 1.5rem;
   text-transform: none;
   border-radius: 5rem;
@@ -82,7 +84,7 @@ export default function HomePage() {
           placeholder="Search by name"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <AddContactBtn to="add-contact">
+        <AddContactBtn to="add-contact" data-testid="add-contact-link">
           <AddIcon style={{ fontSize: '2rem' }} />
           Add Contact
         </AddContactBtn>

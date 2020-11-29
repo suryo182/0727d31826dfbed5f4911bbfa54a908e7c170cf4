@@ -39,7 +39,7 @@ export default function AddContactPage() {
       <TitleWrapper>
         <AddContactTitle>Add New Contact</AddContactTitle>
       </TitleWrapper>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="add-contact-form">
         <label>First Name</label>
         <input
           name="firstName"

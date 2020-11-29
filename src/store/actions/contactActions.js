@@ -7,11 +7,13 @@ import {
   GET_BY_ID,
   SET_FAVORITES,
   DELETE_FAV,
+  DELETE_DATA,
 } from '.';
 
 export const setData = (data) => ({ type: SET_DATA, payload: data });
 export const updateData = (data) => ({ type: UPDATE_DATA, payload: data });
 export const dataById = (data) => ({ type: GET_BY_ID, payload: data });
+export const deleteData = (data) => ({ type: DELETE_DATA, payload: data });
 export const addToFav = (details) => ({
   type: SET_FAVORITES,
   payload: details,
@@ -66,6 +68,7 @@ export const updateContact = (data) => (dispatch) => {
     .then((data) => {
       console.log(data, '<<<< data updated');
       dispatch(updateData(data.data.id));
+      dispatch(fetchData());
     })
     .catch((err) => {
       console.log(err, '<<<< error update contact');
@@ -87,6 +90,15 @@ export const getContactById = (id) => (dispatch) => {
     .catch((err) => {
       console.log(err, '<<< error fetch data by id');
     });
+};
+
+export const deleteContactById = (id) => (dispatch) => {
+  return fetch(`https://simple-contact-crud.herokuapp.com/contact/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 };
 
 const startLoading = () => {

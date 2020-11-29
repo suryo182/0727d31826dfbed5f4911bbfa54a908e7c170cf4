@@ -7,6 +7,7 @@ import {
   GET_BY_ID,
   SET_FAVORITES,
   DELETE_FAV,
+  DELETE_DATA,
 } from '../actions';
 
 const initialState = {
@@ -27,6 +28,11 @@ export default function reducers(state = initialState, action) {
         (fav) => fav.id !== action.payload
       );
       return { ...state, favorites: updatedData };
+    case DELETE_DATA:
+      const dataAfterDeleted = state.lists.filter(
+        (list) => list.id !== action.payload
+      );
+      return { ...state, lists: dataAfterDeleted };
     case ADD_DATA:
       return { ...state, lists: state.lists.concat(action.payload) };
     case UPDATE_DATA:

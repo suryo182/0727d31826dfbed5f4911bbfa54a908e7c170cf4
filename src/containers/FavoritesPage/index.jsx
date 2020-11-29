@@ -9,7 +9,7 @@ export default function FavoritesPage() {
   const { favorites } = useSelector((state) => state);
   console.log(favorites);
   return (
-    <FavoritesListWrapper>
+    <FavoritesListWrapper data-testid="favorites-page">
       {favorites &&
         favorites.map((contact) => (
           <FavContact key={contact.id} list={contact} />

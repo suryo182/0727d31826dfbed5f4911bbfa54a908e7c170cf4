@@ -100,7 +100,10 @@ export default function SideBar() {
           />{' '}
           All Contacts ({lists.length})
         </ContactWrapper>
-        <MyFavoritesWrapper to="/favorites">
+        <MyFavoritesWrapper
+          to="/favorites"
+          data-testid="favorites-sidebar-link"
+        >
           <StarIcon
             style={{
               fontSize: '1.8rem',
