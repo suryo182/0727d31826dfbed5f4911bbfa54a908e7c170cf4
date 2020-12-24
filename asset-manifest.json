@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/css/main.770daf9b.chunk.css",
-    "main.js": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/main.18398391.chunk.js",
-    "main.js.map": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/main.18398391.chunk.js.map",
-    "runtime-main.js": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/runtime-main.1d68d1ba.js",
-    "runtime-main.js.map": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/runtime-main.1d68d1ba.js.map",
-    "static/js/2.d438bb5e.chunk.js": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/2.d438bb5e.chunk.js",
-    "static/js/2.d438bb5e.chunk.js.map": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/2.d438bb5e.chunk.js.map",
-    "static/js/3.892dac7a.chunk.js": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/3.892dac7a.chunk.js",
-    "static/js/3.892dac7a.chunk.js.map": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/3.892dac7a.chunk.js.map",
-    "index.html": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/index.html",
-    "static/css/main.770daf9b.chunk.css.map": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/css/main.770daf9b.chunk.css.map",
-    "static/js/2.d438bb5e.chunk.js.LICENSE.txt": "/0727d31826dfbed5f4911bbfa54a908e7c170cf4/static/js/2.d438bb5e.chunk.js.LICENSE.txt"
+    "main.css": "/react-simple-contact/static/css/main.770daf9b.chunk.css",
+    "main.js": "/react-simple-contact/static/js/main.a5c7adf3.chunk.js",
+    "main.js.map": "/react-simple-contact/static/js/main.a5c7adf3.chunk.js.map",
+    "runtime-main.js": "/react-simple-contact/static/js/runtime-main.15b2da7a.js",
+    "runtime-main.js.map": "/react-simple-contact/static/js/runtime-main.15b2da7a.js.map",
+    "static/js/2.6e2062c0.chunk.js": "/react-simple-contact/static/js/2.6e2062c0.chunk.js",
+    "static/js/2.6e2062c0.chunk.js.map": "/react-simple-contact/static/js/2.6e2062c0.chunk.js.map",
+    "static/js/3.05e2db52.chunk.js": "/react-simple-contact/static/js/3.05e2db52.chunk.js",
+    "static/js/3.05e2db52.chunk.js.map": "/react-simple-contact/static/js/3.05e2db52.chunk.js.map",
+    "index.html": "/react-simple-contact/index.html",
+    "static/css/main.770daf9b.chunk.css.map": "/react-simple-contact/static/css/main.770daf9b.chunk.css.map",
+    "static/js/2.6e2062c0.chunk.js.LICENSE.txt": "/react-simple-contact/static/js/2.6e2062c0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1d68d1ba.js",
-    "static/js/2.d438bb5e.chunk.js",
+    "static/js/runtime-main.15b2da7a.js",
+    "static/js/2.6e2062c0.chunk.js",
     "static/css/main.770daf9b.chunk.css",
-    "static/js/main.18398391.chunk.js"
+    "static/js/main.a5c7adf3.chunk.js"
   ]
 }
