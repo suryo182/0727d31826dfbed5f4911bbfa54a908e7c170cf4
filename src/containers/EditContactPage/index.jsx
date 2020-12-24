@@ -41,7 +41,8 @@ export default function EditContactPage() {
   const { id } = useParams();
   const classes = useStyles();
   // console.log(id, '<<<< id');
-  // console.log(selected, '<<< selected');
+  console.log(selected, '<<< selected');
+  console.log(id, '<<<< params id');
 
   useEffect(() => {
     dispatch(getContactById(id));
@@ -67,7 +68,7 @@ export default function EditContactPage() {
       <TitleWrapper>
         <AddContactTitle>Edit Contact</AddContactTitle>
       </TitleWrapper>
-      {selected.id === id ? (
+      {selected.id === Number(id) ? (
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>First Name</label>
           <input

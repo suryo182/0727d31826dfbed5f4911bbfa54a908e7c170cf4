@@ -22,20 +22,20 @@ export const deleteFav = (id) => ({ type: DELETE_FAV, payload: id });
 
 export const fetchData = () => (dispatch) => {
   dispatch(startLoading());
-  fetch(`https://simple-contact-crud.herokuapp.com/contact`, {
+  fetch(`https://simple-contact-182.herokuapp.com/contacts`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
     },
   })
     .then((res) => res.json())
-    .then((data) => dispatch(setData(data.data)))
+    .then((data) => dispatch(setData(data.contacts)))
     .catch((err) => console.log(err, 'error fetch'))
     .finally(() => dispatch(finishLoading()));
 };
 
 export const addContact = (data) => (dispatch) => {
-  fetch('https://simple-contact-crud.herokuapp.com/contact', {
+  fetch('https://simple-contact-182.herokuapp.com/contacts', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export const addContact = (data) => (dispatch) => {
       console.log(data, '<<<< successfully added');
       dispatch({
         type: ADD_DATA,
-        payload: data,
+        payload: data.contact,
       });
     })
     .catch((err) => {
@@ -57,7 +57,7 @@ export const addContact = (data) => (dispatch) => {
 
 export const updateContact = (data) => (dispatch) => {
   const { firstName, lastName, age, photo } = data;
-  fetch(`https://simple-contact-crud.herokuapp.com/contact/${data.id}`, {
+  fetch(`https://simple-contact-182.herokuapp.com/contacts/${data.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const updateContact = (data) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data, '<<<< data updated');
-      dispatch(updateData(data.data.id));
+      dispatch(updateData(data.contact.id));
       dispatch(fetchData());
     })
     .catch((err) => {
@@ -76,7 +76,7 @@ export const updateContact = (data) => (dispatch) => {
 };
 
 export const getContactById = (id) => (dispatch) => {
-  fetch(`https://simple-contact-crud.herokuapp.com/contact/${id}`, {
+  fetch(`https://simple-contact-182.herokuapp.com/contacts/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export const getContactById = (id) => (dispatch) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data, '<<<< data by id');
-      dispatch(dataById(data.data));
+      dispatch(dataById(data.contact));
     })
     .catch((err) => {
       console.log(err, '<<< error fetch data by id');
@@ -93,7 +93,7 @@ export const getContactById = (id) => (dispatch) => {
 };
 
 export const deleteContactById = (id) => (dispatch) => {
-  return fetch(`https://simple-contact-crud.herokuapp.com/contact/${id}`, {
+  return fetch(`https://simple-contact-182.herokuapp.com/contacts/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',

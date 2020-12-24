@@ -58,6 +58,8 @@ export default function HomePage() {
   const { lists, isLoading } = useSelector((state) => state);
   const classes = useStyles();
 
+  console.log(lists, '<<<< lists');
+
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
